@@ -20,9 +20,9 @@
 */
 typedef struct stack_s
 {
-int n;
-struct stack_s *prev;
-struct stack_s *next;
+    int n;
+    struct stack_s *prev;
+    struct stack_s *next;
 } stack_t;
 
 /**
@@ -37,11 +37,11 @@ struct stack_s *next;
 */
 typedef struct bus_s
 {
-char *arg;
-FILE *file;
-char *content;
-int lifi;
-}  bus_t;
+    char *arg;
+    FILE *file;
+    char *content;
+    int lifi;
+} bus_t;
 
 extern bus_t bus;
 
@@ -55,14 +55,20 @@ extern bus_t bus;
 */
 typedef struct instruction_s
 {
-char *opcode;
-void (*f)(stack_t **stack, unsigned int line_number);
+    char *opcode;
+    void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+
+void push(int value);
+int pop();
+void pint(stack_t **stack, unsigned int line_number);
 
 char *_realloc(char *ptr, unsigned int old_size, unsigned int new_size);
 ssize_t getstdin(char **lineptr, int file);
-char  *clean_line(char *content);
+char *clean_line(char *content);
 ssize_t getline(char **lineptr, size_t *n, FILE *stream);
+int readBytesFromFile(const char* filename, int numBytes);
+/*ssize_t _getline(char **lineptr, size_t *n, FILE *stream);*/
 void f_push(stack_t **head, unsigned int number);
 void f_pall(stack_t **head, unsigned int number);
 void addqueue(stack_t **head, int n);
@@ -84,7 +90,6 @@ void f_rotr(stack_t **head, __attribute__((unused)) unsigned int counter);
 void addnode(stack_t **head, int n);
 void f_queue(stack_t **head, unsigned int counter);
 void f_stack(stack_t **head, unsigned int counter);
-
 
 #endif
 
