@@ -15,6 +15,7 @@ void f_mul(stack_t **head, unsigned int counter)
 	{
 		fprintf(stderr, "L%d: can't mul, stack too short\n", counter);
 		fclose(bus.file);
+		free(*head);
 		exit(EXIT_FAILURE);
 	}
 	else
