@@ -9,25 +9,22 @@
 
 void f_sub(stack_t **head, unsigned int counter)
 {
-	stack_t *aux;
-	int sub, b;
+	stack_t *first, *second;
 
-	aux = *head;
-	for (b = 0; aux != NULL; b++)
-		aux = aux->next;
 
-	if (b < 2)
+	if ((*head == NULL) || ((*head)->next == NULL))
 	{
 		fprintf(stderr, "L%d: can't sub, stack too short\n", counter);
 		fclose(bus.file);
-		free(bus.content);
 		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}
 
-	aux = *head;
-	sub = aux->next->n - aux->n;
-	aux->next->n = sub;
-	*head = aux->next;
-	free(aux);
+	else
+	first = *head;
+	second = first->next;
+	second->n -= first->n;
+	*head = second;
+	(*head)->prev = NULL;
+	free(first);
 }

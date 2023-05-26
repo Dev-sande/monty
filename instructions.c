@@ -8,13 +8,15 @@
  * @file: file pointer
  * Return: Nothing
  */
-int execute(char *content, stack_t **stack, unsigned int counter, FILE *file)
+int execute(char *content, stack_t **head, unsigned int counter, FILE *file)
 {
     instruction_t opst[] = {
         {"pint", &pint},
         {"pop", &f_pop},
         {"swap", &f_swap},
         {"add", &f_add},
+	{"sub", &f_sub},
+	{"mul", &f_mul},
         {"nop", &f_nop},
         {"push", &f_push},
         {"pall", &f_pall},
@@ -34,7 +36,7 @@ int execute(char *content, stack_t **stack, unsigned int counter, FILE *file)
     {
         if (strcmp(op, opst[i].opcode) == 0)
         {
-            opst[i].f(stack, counter);
+            opst[i].f(head, counter);
             return (0);
         }
         i++;
@@ -45,7 +47,7 @@ int execute(char *content, stack_t **stack, unsigned int counter, FILE *file)
         fprintf(stderr, "L%d: unknown instruction %s\n", counter, op);
         fclose(file);
         free(content);
-        free_stack(*stack);
+        free_stack(*head);
         exit(EXIT_FAILURE);
     }
 
