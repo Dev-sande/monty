@@ -19,6 +19,7 @@ int execute(char *content, stack_t **head, unsigned int counter, FILE *file)
 	{"div", &f_div},
 	{"mod", &f_mod},
 	{"pchar", &f_pchar},
+	{"pstr", &f_pstr},
 	{"mul", &f_mul},
         {"nop", &f_nop},
         {"push", &f_push},
