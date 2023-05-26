@@ -1,10 +1,10 @@
 #include "monty.h"
 
 /**
- *f_nop- nothing
- *@head: stack head
- *@counter: line_number
- *Return: no return
+ *f_nop- takes two parameters
+ *@head: a double pointer to a stack_t structure
+ *@counter: not used in the function.
+ *Return: Nothing
  */
 void f_nop(stack_t **head, unsigned int counter)
 {
