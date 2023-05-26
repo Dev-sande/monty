@@ -1,9 +1,9 @@
 #include "monty.h"
 
 /**
- * addnode - add node to the head stack
- * @head: head of the stack
- * @n: new_value
+ * addnode - takes two parameters
+ * @head: a double pointer to a stack_t structure
+ * @n: an integer value
  * Return: Nothing
  */
 void addnode(stack_t **head, int n)
@@ -19,7 +19,9 @@ void addnode(stack_t **head, int n)
 	if (aux)
 		aux->prev = new_node;
 	new_node->n = n;
+
 	new_node->next = *head;
+	
 	new_node->prev = NULL;
 	*head = new_node;
 }

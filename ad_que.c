@@ -1,10 +1,10 @@
 #include "monty.h"
 
 /**
- * f_queue - prints the top
- * @head: stack head
- * @counter: line_number
- * Return: no return
+ * f_queue - unction takes two parameters
+ * @head: which is a pointer to the head of the stack
+ * @counter: represents the line number
+ * Return: Nothing
  */
 void f_queue(stack_t **head, unsigned int counter)
 {
@@ -14,11 +14,12 @@ void f_queue(stack_t **head, unsigned int counter)
 }
 
 /**
- * addqueue - add node to the tail stack
- * @n: new_value
- * @head: head of the stack
- * Return: no return
+ * addqueue - This function takes two parameters
+ * @n: member of the new_node.
+ * @head: top of stack
+ * Return: Nothing
  */
+
 void addqueue(stack_t **head, int n)
 {
 	stack_t *new_node, *aux;

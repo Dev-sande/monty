@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * execute - runs operation codes
+ * execute - used to run operation codes
  * @content: content
  * @stack: double pointer to the head of the stack
  * @counter: counter
